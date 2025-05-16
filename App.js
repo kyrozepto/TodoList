@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoList from './src/screens/TodoList';
+import { StatusBar, View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
-import { View, ActivityIndicator } from 'react-native';
+import Navigation from './src/config/navigation';
 
-const App = () => {
+export default function App() {
   const [fontsLoaded] = useFonts({
     'SequelSans-Bold': require('./assets/fonts/SequelSansBoldDisp.ttf'),
     'SequelSans-Light': require('./assets/fonts/SequelSansLightDisp.ttf'),
@@ -20,7 +20,10 @@ const App = () => {
     );
   }
 
-  return <TodoList />;
-};
-
-export default App;
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <Navigation />
+    </>
+  );
+}
